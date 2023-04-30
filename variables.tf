@@ -1,9 +1,11 @@
 variable "create" {
-  default = true
+  description = "Whether or not to create the rbin rule(s)."
+  type        = bool
+  default     = true
 }
 
-variable "rbin_rule" {
-  type = any
-  default = {}
+variable "rbin_rules" {
+  description = "A map of rbin rules to create."
+  type        = any
+  default     = {}
 }
-

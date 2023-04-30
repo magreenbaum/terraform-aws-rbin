@@ -5,7 +5,7 @@ provider "aws" {
 module "rbin" {
   source = "../../"
 
-  rbin_rule = {
+  rbin_rules = {
     ebs_snapshot = {
       description   = "EBS Snapshot recycle rule"
       resource_type = "EBS_SNAPSHOT"

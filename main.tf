@@ -2,8 +2,7 @@ resource "aws_rbin_rule" "this" {
   for_each = { for k, v in var.rbin_rules : k => v if var.create }
 
   resource_type = each.value.resource_type
-
-  description = each.value.description
+  description   = each.value.description
 
   dynamic "retention_period" {
     for_each = length(each.value.retention_period) > 0 ? [true] : []
@@ -24,7 +23,6 @@ resource "aws_rbin_rule" "this" {
   dynamic "lock_configuration" {
     for_each = each.value.lock_configuration
     content {
-
       dynamic "unlock_delay" {
         for_each = length(each.value.lock_configuration.unlock_delay) > 0 ? [true] : []
         content {
